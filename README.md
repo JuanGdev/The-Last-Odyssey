@@ -1,2 +1,2 @@
-# ArtC-de
-Repo for NASA Space Apps 2024 submission
+# Space Oditty 🌌
+Repo for NASA Space Apps 2024 Submission
