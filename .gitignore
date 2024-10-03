@@ -70,3 +70,54 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Ignore auto-generated VS/OSX/Linux/JetBrains Rider files
+.DS_Store
+*.tmp
+*.bak
+*.swp
+*.sln
+*.user
+*.userprefs
+*.csproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+.vscode/
+.idea/
+.vscode/
+
+# Ignore files from the Library folder, but not the Asset Store packages
+[Ll]ibrary/
+[Ll]ocalPackages/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]serSettings/
+
+# Avoid ignoring Asset Store packages that might be stored in the project’s assets folder
+!/[Aa]ssets/AssetStoreTools*
+
+# Ignore generated lightmap data
+/[Aa]ssets/**/Lightmap-*.png
+/[Aa]ssets/**/Lightmap-*.exr
+
+# Ignore project-specific settings
+/Assets/StreamingAssets/
+/Assets/AddressableAssetsData/
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/QualitySettings.asset
+
+# Ignore crash reports
+sysinfo.txt
+
+# Ignore build-specific data
+[Bb]uild/
+[Bb]uilds/
+
