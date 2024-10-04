@@ -28,7 +28,8 @@ public class playerMovement : MonoBehaviour
 
         if (isInsideCollider && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Test");
+            Debug.Log("E key pressed");
+            GameManager.instance.LoadGame();
         }
     }
 
