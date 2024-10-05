@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             
             // Load the first level of the game based on SceneIndexes.cs order and build settings
-            SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_1, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR, LoadSceneMode.Additive);
         }
         else
         {
@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadGameWithFakeLoading(SceneIndexes sceneIndex)
     {
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR));
         LoadingScreen.gameObject.SetActive(true);
         Bar.value = 0; // Reset the slider value
         Debug.Log("Activating the loading screen");
 
         yield return StartCoroutine(FakeLoadingScreen());
 
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_1));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)sceneIndex, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
