@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject LoadingScreen;
+    public Slider Bar;
 
     void Awake()
     {
@@ -24,23 +26,46 @@ public class GameManager : MonoBehaviour
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    public void LoadGame()
+    public void LoadGame(SceneIndexes sceneIndex)
     {
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_1));
-        LoadingScreen.gameObject.SetActive(true);
-        Debug.Log("Activating the loadging screen");
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_2, LoadSceneMode.Additive));
+        StartCoroutine(LoadGameWithFakeLoading(sceneIndex));
+    }
 
+    private IEnumerator LoadGameWithFakeLoading(SceneIndexes sceneIndex)
+    {
+        LoadingScreen.gameObject.SetActive(true);
+        Bar.value = 0; // Reset the slider value
+        Debug.Log("Activating the loading screen");
+
+        yield return StartCoroutine(FakeLoadingScreen());
+
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_1));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)sceneIndex, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
+
+    private IEnumerator FakeLoadingScreen()
+    {
+        float fakeProgress = 0f;
+        while (fakeProgress < 1f)
+        {
+            float increment = UnityEngine.Random.Range(0.1f, 0.2f); // Random increment between 0.1 and 0.2
+            fakeProgress += increment;
+            Bar.value = fakeProgress;
+            yield return new WaitForSeconds(0.5f); // Simulate loading time
+            // Simulate other events here
+            Debug.Log("Simulating event during fake loading: " + (fakeProgress * 100) + "%");
+        }
+        Bar.value = 1f; // Ensure the bar is fully loaded at the end
+    }
+
     public IEnumerator GetSceneLoadProgress()
     {
         for (int i = 0; i < scenesLoading.Count; i++)
         {
             while (!scenesLoading[i].isDone)
             {
-                Debug.Log("Loading progress: " + scenesLoading[i].progress);
-                yield return null;
+                yield return new WaitForSeconds(0.1f); // Add a delay to slow down the progress bar update
             }
         }
         LoadingScreen.gameObject.SetActive(false);
