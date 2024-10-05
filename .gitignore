@@ -121,4 +121,4 @@ sysinfo.txt
 [Bb]uild/
 [Bb]uilds/
 
-.vsconfig/
+*.vsconfig
