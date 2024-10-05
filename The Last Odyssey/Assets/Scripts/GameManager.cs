@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            // Load the first level of the game based on SceneIndexes.cs order and build settings
             SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_1, LoadSceneMode.Additive);
         }
         else
