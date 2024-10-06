@@ -169,6 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 678218154}
   exoplanetsLocked: 000000
+  exoplanetMessages:
+  - 
+  - 
+  - 
 --- !u!1 &678218154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088723449067752175, guid: 2efdb0697625c5649a13bb5e80f60a82,
@@ -251,6 +255,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 628653644342610599, guid: 2efdb0697625c5649a13bb5e80f60a82,
+        type: 3}
+      propertyPath: m_text
+      value: "\xA1Vamos al espacio!"
+      objectReference: {fileID: 0}
     - target: {fileID: 6193427075506095634, guid: 2efdb0697625c5649a13bb5e80f60a82,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -351,10 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ff9477f6ee4a643ac72b4ba1cbfccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingTexts:
-  - 
-  - 
-  - 
   loadingTextField: {fileID: 1188181935}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

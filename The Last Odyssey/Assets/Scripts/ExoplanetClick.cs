@@ -11,8 +11,6 @@ public class ExoplanetClick : MonoBehaviour
     public GameObject exoplanetAnother2;
     public GameObject exoplanetLocked;
     public int exoplanetIndex;
-    public LoadingScreenTexts loadingScreenTexts; // Reference to LoadingScreenTexts
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -41,7 +39,8 @@ public class ExoplanetClick : MonoBehaviour
 
                     // Update loading texts based on selected exoplanet
                     string[] messages = GetMessagesForExoplanet(exoplanetIndex);
-                    loadingScreenTexts.SetLoadingTexts(messages);
+                    // Load the messages to the exoplanetsMessages array in GameManager
+                    GameManager.instance.exoplanetMessages = messages;
                 }
             }
         }

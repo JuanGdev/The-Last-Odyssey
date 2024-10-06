@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject LoadingScreen;
     public bool[] exoplanetsLocked = new bool[3];
+    public string[] exoplanetMessages = new string[3];
     
     void Awake()
     {
