@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour
             Debug.Log("E key pressed");
             
             // Load the next level based on SceneIndexes.cs
-            GameManager.instance.LoadGame(SceneIndexes.LEVEL_3);
+            GameManager.instance.LoadGame(SceneIndexes.LEVEL_2);
         }
     }
 
