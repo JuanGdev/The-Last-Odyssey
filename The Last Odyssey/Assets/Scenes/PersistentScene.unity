@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 678218154}
-  Bar: {fileID: 0}
 --- !u!1 &678218154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088723449067752175, guid: 2efdb0697625c5649a13bb5e80f60a82,
@@ -233,10 +232,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7030205380379181649, guid: 2efdb0697625c5649a13bb5e80f60a82,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 44e4eef3ab0f7a0499aa283bab66facc,
+        type: 3}
     - target: {fileID: 8088723449067752175, guid: 2efdb0697625c5649a13bb5e80f60a82,
         type: 3}
       propertyPath: m_Name
       value: LoadingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088723449067752175, guid: 2efdb0697625c5649a13bb5e80f60a82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
