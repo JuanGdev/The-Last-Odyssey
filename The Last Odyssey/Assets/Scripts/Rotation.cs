@@ -16,9 +16,7 @@ public class Rotation : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        float angle = Mathf.LerpAngle(transform.eulerAngles.x, speed * Time.deltaTime, speed);
-        Vector3 eulerAngles = new(angle, transform.eulerAngles.y, transform.eulerAngles.z);
-        Quaternion rotation = Quaternion.Euler(eulerAngles);
-        rb.MoveRotation(rotation);
+        Quaternion deltaRotation = Quaternion.Euler(speed * Time.fixedDeltaTime, 0f, 0f);
+        rb.MoveRotation(rb.rotation * deltaRotation);
     }
 }
