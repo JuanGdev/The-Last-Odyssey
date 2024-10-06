@@ -323,7 +323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: f27fe676822791d4e9dd18fe08254c04, type: 2}
+  m_Texture: {fileID: 8400000, guid: 99b3911f2a113cb459adc20219dc27d1, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 1204983156}
   - component: {fileID: 1204983155}
   - component: {fileID: 1204983157}
+  - component: {fileID: 1204983158}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -466,6 +467,14 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &1204983158
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204983153}
+  m_Enabled: 1
 --- !u!1 &2065157013
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +571,6 @@ RectTransform:
   m_Children:
   - {fileID: 1050736768}
   - {fileID: 766164669}
-  - {fileID: 2095386824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -595,11 +603,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095386822}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ccfadcfb6965476439f2664303d115bc, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 999b2687b8525eb41ad24507de1624e6, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: f27fe676822791d4e9dd18fe08254c04, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 99b3911f2a113cb459adc20219dc27d1, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -632,16 +640,17 @@ Transform:
   m_GameObject: {fileID: 2095386822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2065157017}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1204983156}
+  - {fileID: 2095386824}
   - {fileID: 2065157017}
   - {fileID: 857422363}

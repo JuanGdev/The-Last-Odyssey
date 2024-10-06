@@ -5,7 +5,7 @@ using UnityEngine;
 public class orbitSpeed : MonoBehaviour
 {
     public Transform star;
-    public float orbitSpeedValue = 10.0f;
+    public float orbitSpeedValue = 4.0f;
     public float orbitRadius = 10.0f;
     
     void Update()
