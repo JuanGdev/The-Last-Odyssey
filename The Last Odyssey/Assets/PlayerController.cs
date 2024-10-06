@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour
     Vector3 fallVector = Vector3.zero;
     void Jump()
     {
-        JumpGravityModifier();
         if (!groundDetector.triggered) return;
+        if (!jumping) fallVector = Vector3.zero;
         if (!Input.GetKeyDown(KeyCode.Space))
         {
             if (jumpTime < Time.time - jumpStartTime) jumping = false;
@@ -67,27 +67,15 @@ public class PlayerController : MonoBehaviour
         jumping = true;
     }
 
-    void JumpGravityModifier()
-    {
-        if (!jumping)
-        {
-            gravity = originalGravity;
-            return;
-        }
-        if (fallVector.y <= 0) gravity = originalGravity * 0.3f;
-    }
-
     float fallVelocity = 0;
     Vector3 GravityVector()
     {
-        if (characterController.isGrounded)
+        if (groundDetector.triggered)
         {
             fallVelocity = 0;
             return Vector3.down * fallVelocity;
         }
-
         fallVelocity += gravity * Time.deltaTime;
-
-        return fallVelocity * Time.deltaTime * Time.deltaTime * Vector3.down;
+        return fallVelocity * Time.deltaTime * Time.fixedDeltaTime * Vector3.down;
     }
 }
