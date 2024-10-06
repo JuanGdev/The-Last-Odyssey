@@ -7,7 +7,6 @@ using UnityEngine.Video;
 public class VideoSceneTransition : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public SceneIndexes nextScene;
     
     void Start()
     {
@@ -27,8 +26,8 @@ public class VideoSceneTransition : MonoBehaviour
         yield return new WaitForSeconds(13.0f);
         
         // Unload the current scene
-        SceneManager.UnloadSceneAsync((int)SceneIndexes.CINEMATIC_SCENE);
+        SceneManager.UnloadSceneAsync("CinematicScene");
         // Load the next scene
-        GameManager.instance.LoadGame(nextScene);
+        SceneManager.LoadScene("LevelSelector");
     }
 }

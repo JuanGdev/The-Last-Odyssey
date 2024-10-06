@@ -719,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationActivate: {fileID: 986259452}
   KeyPressedPanel: {fileID: 2034309964}
+  loadingScreen: {fileID: 0}
 --- !u!1 &2034309960
 GameObject:
   m_ObjectHideFlags: 0

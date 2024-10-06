@@ -23,28 +23,21 @@ public class MainLevel : MonoBehaviour
             // Change the value of the animator parameter KeyPressed to true
             KeyPressedPanel.SetBool("KeyPressed", true);
             
-            // Start coroutine to unload the current scene after a delay
-            StartCoroutine(UnloadCurrentSceneWithDelay());
-
+            // Unload the current scene
+            SceneManager.UnloadSceneAsync("MainScene");
+            
             // Load the next scene
-            SceneManager.LoadSceneAsync((int)SceneIndexes.CINEMATIC_SCENE, LoadSceneMode.Additive);
+            SceneManager.LoadScene("CinematicScene");
         }
     }
     
     private IEnumerator EnableComponent(float delay)
     {
-        // Wait for the specified delay
+        // Wait for the delay
         yield return new WaitForSeconds(delay);
-        // Reproduce la animación
-        animationActivate.SetActive(true);
         delayApplied = true;
+        // Activate the animation
+        animationActivate.SetActive(true);
     }
-
-    private IEnumerator UnloadCurrentSceneWithDelay()
-    {
-        // Wait for 1 second
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.UnloadSceneAsync((int)SceneIndexes.MAIN_SCENE);
-        SceneManager.LoadSceneAsync((int)SceneIndexes.CINEMATIC_SCENE, LoadSceneMode.Additive);
-    }
+    
 }
