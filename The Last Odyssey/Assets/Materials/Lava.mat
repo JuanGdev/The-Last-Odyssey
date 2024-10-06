@@ -59,14 +59,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Definition: -0.14
+    - _Definition: -2
+    - _NormalStrenght: 4
     - _Offset: -1.4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SecondLayerOffset: -1.4
     - _SecondLayerSpeed: 0.3
-    - _Speed: 0.08
-    - _Tiling: 8.17
+    - _Speed: 0.04
+    - _Tiling: 200.29
     m_Colors:
-    - _Color: {r: 15.999998, g: 0, b: 3.563888, a: 0}
+    - _Color: {r: 18.741478, g: 1.4787545, b: 0, a: 0}
   m_BuildTextureStacks: []
