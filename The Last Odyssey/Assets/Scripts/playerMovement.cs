@@ -29,7 +29,9 @@ public class playerMovement : MonoBehaviour
         if (isInsideCollider && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E key pressed");
-            GameManager.instance.LoadGame();
+            
+            // Load the next level based on SceneIndexes.cs
+            GameManager.instance.LoadGame(SceneIndexes.LEVEL_2);
         }
     }
 
