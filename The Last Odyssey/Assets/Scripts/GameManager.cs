@@ -9,9 +9,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameObject LoadingScreen;
-
+    public bool[] exoplanetsLocked = new bool[3];
+    
     void Awake()
     {
+        // Initialize the exoplanetsLocked array
+        exoplanetsLocked[0] = true;
+        exoplanetsLocked[1] = false;
+        exoplanetsLocked[2] = false;
+        
         if (instance == null)
         {
             instance = this;
@@ -25,9 +31,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    
     
     public void LoadGame(SceneIndexes sceneIndex)
     {
@@ -36,39 +39,18 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator LoadGameWithFakeLoading(SceneIndexes sceneIndex)
     {
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR));
+        SceneManager.UnloadSceneAsync((int)SceneIndexes.CINEMATIC_SCENE);
         LoadingScreen.gameObject.SetActive(true);
 
         Debug.Log("Activating the loading screen");
 
         yield return StartCoroutine(FakeLoadingScreen());
-
+        LoadingScreen.gameObject.SetActive(false);
         SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_1, LoadSceneMode.Additive);
-        StartCoroutine(GetSceneLoadProgress());
     }
 
     private IEnumerator FakeLoadingScreen()
     {
-        float fakeProgress = 0f;
-        while (fakeProgress < 1f)
-        {
-            float increment = UnityEngine.Random.Range(0.1f, 0.2f); // Random increment between 0.1 and 0.2
-            fakeProgress += increment;
-            yield return new WaitForSeconds(0.5f); // Simulate loading time
-            // Simulate other events here
-            Debug.Log("Simulating event during fake loading: " + (fakeProgress * 100) + "%");
-        } 
-    }
-
-    public IEnumerator GetSceneLoadProgress()
-    {
-        for (int i = 0; i < scenesLoading.Count; i++)
-        {
-            while (!scenesLoading[i].isDone)
-            {
-                yield return new WaitForSeconds(0.1f); // Add a delay to slow down the progress bar update
-            }
-        }
-        LoadingScreen.gameObject.SetActive(false);
+            yield return new WaitForSeconds(13f); // Simulate loading time
     }
 }

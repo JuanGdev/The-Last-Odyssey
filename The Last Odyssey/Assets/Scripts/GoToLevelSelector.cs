@@ -23,11 +23,11 @@ public class VideoSceneTransition : MonoBehaviour
     private IEnumerator TransitionToNextScene()
     {
         // Optionally, add a delay here if needed
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(13.0f);
         
         // Unload the current scene
         SceneManager.UnloadSceneAsync((int)SceneIndexes.CINEMATIC_SCENE);
         // Load the next scene
-        SceneManager.LoadSceneAsync((int)nextScene, LoadSceneMode.Additive);
+        GameManager.instance.LoadGame(nextScene);
     }
 }

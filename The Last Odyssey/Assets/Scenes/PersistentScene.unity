@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 678218154}
+  exoplanetsLocked: 000000
 --- !u!1 &678218154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088723449067752175, guid: 2efdb0697625c5649a13bb5e80f60a82,
