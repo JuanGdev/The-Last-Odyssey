@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class ExoplanetClick : MonoBehaviour
 {
-    private GameObject currentCard; 
+    private GameObject currentCard;
     public GameObject exoplanetMain;
     public GameObject exoplanetAnother1;
     public GameObject exoplanetAnother2;
     public GameObject exoplanetLocked;
     public int exoplanetIndex;
+    public Button skipButton;
+
+    void Start()
+    {
+        // Add listener to the button's onClick event
+        skipButton.onClick.AddListener(OnButtonClick);
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -44,6 +52,12 @@ public class ExoplanetClick : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnButtonClick()
+    {
+        GameManager.instance.LoadGameExP1(SceneIndexes.LEVEL_1);
+        // Add your button click handling logic here
     }
 
     // Method to get messages for a specific exoplanet

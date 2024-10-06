@@ -146,8 +146,7 @@ MonoBehaviour:
   exoplanetAnother2: {fileID: 1247062900}
   exoplanetLocked: {fileID: 1406409740}
   exoplanetIndex: 0
-  loadingScreenTexts: {fileID: 7077047815794556266, guid: 1f048423728d4c04a8b897cc738ca248,
-    type: 3}
+  skipButton: {fileID: 1709422955}
 --- !u!1 &156868058
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,8 +461,7 @@ MonoBehaviour:
   exoplanetAnother2: {fileID: 1247062900}
   exoplanetLocked: {fileID: 1406409740}
   exoplanetIndex: 1
-  loadingScreenTexts: {fileID: 7077047815794556266, guid: 1f048423728d4c04a8b897cc738ca248,
-    type: 3}
+  skipButton: {fileID: 478961455}
 --- !u!1001 &439281644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,8 +572,7 @@ MonoBehaviour:
   exoplanetAnother2: {fileID: 156868058}
   exoplanetLocked: {fileID: 1406409740}
   exoplanetIndex: 2
-  loadingScreenTexts: {fileID: 7077047815794556266, guid: 1f048423728d4c04a8b897cc738ca248,
-    type: 3}
+  skipButton: {fileID: 792442774}
 --- !u!1 &478961453
 GameObject:
   m_ObjectHideFlags: 0

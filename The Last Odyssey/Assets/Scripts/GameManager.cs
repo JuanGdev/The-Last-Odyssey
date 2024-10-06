@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(LoadGameWithFakeLoading(sceneIndex));
     }
+    
+    public void LoadGameExP1(SceneIndexes sceneIndex)
+    {
+        StartCoroutine(LoadGameWithFakeLoadingExP1(sceneIndex));
+    }
 
     private IEnumerator LoadGameWithFakeLoading(SceneIndexes sceneIndex)
     {
@@ -50,6 +55,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR, LoadSceneMode.Additive);
     }
 
+    private IEnumerator LoadGameWithFakeLoadingExP1(SceneIndexes sceneIndex)
+    {
+        SceneManager.UnloadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR);
+        LoadingScreen.gameObject.SetActive(true);
+
+        Debug.Log("Activating the loading screen");
+
+        yield return StartCoroutine(FakeLoadingScreen());
+        LoadingScreen.gameObject.SetActive(false);
+        SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_1, LoadSceneMode.Additive);
+    }
+    
     private IEnumerator FakeLoadingScreen()
     {
             yield return new WaitForSeconds(13f); // Simulate loading time
