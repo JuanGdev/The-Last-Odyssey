@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Security;
@@ -15,14 +16,14 @@ public class PlayerController : MonoBehaviour
     public bool jumping = false;
     float jumpTime = 0.5f;
     float jumpStartTime = 0;
-    float originalGravity;
+
+    public static event Action OnPlayerGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         groundDetector = transform.GetComponentInChildren<Trigger>();
-        originalGravity = gravity;
     }
 
     private void Update()
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = camRotation * inputDirection;
         fallVector += GravityVector();
+        if (groundDetector.triggered && !jumping) fallVector = 2 * Vector3.down;
         characterController.Move(speed * Time.deltaTime * direction + fallVector);
         Rotation(inputDirection);
     }
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (groundDetector.triggered)
         {
+            OnPlayerGrounded();
             fallVelocity = 0;
             return Vector3.down * fallVelocity;
         }
