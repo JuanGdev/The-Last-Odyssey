@@ -27,6 +27,8 @@ public class LevelEndCutscene : MonoBehaviour
             virtualCamera.Priority = 11;
             other.GetComponent<CharacterController>().enabled = false;
             other.GetComponent<PlayerController>().enabled = false;
+            ParticleSystem particleSystem = other.GetComponentInChildren<ParticleSystem>();
+            if (!particleSystem.isPlaying) particleSystem.Play();
             StartCoroutine(MovePlayer(other.gameObject));
             StartCoroutine(RotatePlayer(other.gameObject));
         }

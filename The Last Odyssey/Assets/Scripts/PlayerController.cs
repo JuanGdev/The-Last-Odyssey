@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = camRotation * inputDirection;
         fallVector += GravityVector();
-        if (groundDetector.triggered && !jumping) fallVector = 2 * Vector3.down;
+        if (groundDetector.triggered && !jumping) fallVector = 0.2f * Vector3.down;
         characterController.Move(speed * Time.deltaTime * direction + fallVector);
         Rotation(inputDirection);
     }
