@@ -68,9 +68,9 @@ public class ExoplanetClick : MonoBehaviour
             case 0:
                 return new string[]
                 {
-                    "Mensaje 1 para exoplaneta 0",
-                    "Mensaje 2 para exoplaneta 0",
-                    "Mensaje 3 para exoplaneta 0"
+                    "Las supertierras están compuestas de gas, roca o una mezcla de ambos.",
+                    "Las supertierras son entre dos veces más grandes que la Tierra y hasta diez veces más masivas.",
+                    "El nombre supertierra se refiere solo a su tamaño, pues no son parecidas a nuestro planeta."
                 };
             case 1:
                 return new string[]

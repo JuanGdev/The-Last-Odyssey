@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &986259453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faf4949d2b5c9543ac0fff7866e68c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationActivate: {fileID: 986259452}
   KeyPressedPanel: {fileID: 2034309964}
 --- !u!1 &2034309960
 GameObject:
