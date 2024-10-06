@@ -1,17 +1,17 @@
-// ExoplanetClick.cs
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ExoplanetClick : MonoBehaviour
 {
     private GameObject currentCard;
-    public GameObject exoplanetMain;
-    public GameObject exoplanetAnother1;
-    public GameObject exoplanetAnother2;
-    public GameObject exoplanetLocked;
-    public int exoplanetIndex;
+    public string SceneName;
+    public GameObject exoplanetCard;
     public Button skipButton;
+
+    public GameObject exoplanetCardB;
+    public GameObject exoplanetCardC;
 
     void Start()
     {
@@ -30,69 +30,26 @@ public class ExoplanetClick : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    if (GameManager.instance.exoplanetsLocked[exoplanetIndex])
-                    {
-                        exoplanetMain.SetActive(true);
-                        exoplanetLocked.SetActive(false);
-                        exoplanetAnother1.SetActive(false);
-                        exoplanetAnother2.SetActive(false);
-                    }
-                    else
-                    {
-                        exoplanetMain.SetActive(false);
-                        exoplanetLocked.SetActive(true);
-                        exoplanetAnother1.SetActive(false);
-                        exoplanetAnother2.SetActive(false);
-                    }
-
-                    // Update loading texts based on selected exoplanet
-                    string[] messages = GetMessagesForExoplanet(exoplanetIndex);
-                    // Load the messages to the exoplanetsMessages array in GameManager
-                    GameManager.instance.exoplanetMessages = messages;
+                    exoplanetCard.SetActive(true);
                 }
             }
         }
     }
 
-    void OnButtonClick()
+    private IEnumerator LoadSceneWithLoadingUI()
     {
-        GameManager.instance.LoadGameExP1(SceneIndexes.LEVEL_1);
-        // Add your button click handling logic here
+        // Load the LoadingUI scene
+        SceneManager.LoadScene("LoadingUIScene", LoadSceneMode.Additive);
+        // Wait for 8 seconds
+        yield return new WaitForSeconds(8f);
+        // Unload the LoadingUI scene
+        currentCard.SetActive(false);    
     }
 
-    // Method to get messages for a specific exoplanet
-    private string[] GetMessagesForExoplanet(int index)
+    void OnButtonClick()
     {
-        switch (index)
-        {
-            case 0:
-                return new string[]
-                {
-                    "Las supertierras están compuestas de gas, roca o una mezcla de ambos.",
-                    "Las supertierras son entre dos veces más grandes que la Tierra y hasta diez veces más masivas.",
-                    "El nombre supertierra se refiere solo a su tamaño, pues no son parecidas a nuestro planeta."
-                };
-            case 1:
-                return new string[]
-                {
-                    "Mensaje 1 para exoplaneta 1",
-                    "Mensaje 2 para exoplaneta 1",
-                    "Mensaje 3 para exoplaneta 1"
-                };
-            case 2:
-                return new string[]
-                {
-                    "Mensaje 1 para exoplaneta 2",
-                    "Mensaje 2 para exoplaneta 2",
-                    "Mensaje 3 para exoplaneta 2"
-                };
-            default:
-                return new string[]
-                {
-                    "Mensaje por defecto 1",
-                    "Mensaje por defecto 2",
-                    "Mensaje por defecto 3"
-                };
-        }
+        // Add your button click handling logic here
+        SceneManager.LoadScene(SceneName);
+        
     }
 }

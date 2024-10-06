@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0019585623, g: 0.0020312748, b: 0.0026709014, a: 1}
+  m_IndirectSpecularColor: {r: 0.0019740665, g: 0.0020407871, b: 0.002678333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -259,12 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exoplanetMain: {fileID: 1275820515}
-  exoplanetAnother1: {fileID: 156868058}
-  exoplanetAnother2: {fileID: 1247062900}
-  exoplanetLocked: {fileID: 1406409740}
-  exoplanetIndex: 0
-  skipButton: {fileID: 1709422955}
+  SceneName: SuperEarth
+  exoplanetCard: {fileID: 1247062900}
+  skipButton: {fileID: 792442774}
+  exoplanetCardB: {fileID: 156868058}
+  exoplanetCardC: {fileID: 1275820515}
 --- !u!1 &156868058
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +277,7 @@ GameObject:
   - component: {fileID: 156868061}
   - component: {fileID: 156868060}
   m_Layer: 5
-  m_Name: Panel Exoplanet2 Unlocked
+  m_Name: Panel Neptuniano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,12 +578,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exoplanetMain: {fileID: 156868058}
-  exoplanetAnother1: {fileID: 1275820515}
-  exoplanetAnother2: {fileID: 1247062900}
-  exoplanetLocked: {fileID: 1406409740}
-  exoplanetIndex: 1
-  skipButton: {fileID: 478961455}
+  SceneName: GasPlanet
+  exoplanetCard: {fileID: 1275820515}
+  skipButton: {fileID: 1709422955}
+  exoplanetCardB: {fileID: 156868058}
+  exoplanetCardC: {fileID: 1247062900}
 --- !u!1001 &439281644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,12 +688,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exoplanetMain: {fileID: 1247062900}
-  exoplanetAnother1: {fileID: 1275820515}
-  exoplanetAnother2: {fileID: 156868058}
-  exoplanetLocked: {fileID: 1406409740}
-  exoplanetIndex: 2
-  skipButton: {fileID: 792442774}
+  SceneName: NeptunianLevel
+  exoplanetCard: {fileID: 156868058}
+  skipButton: {fileID: 478961455}
+  exoplanetCardB: {fileID: 1247062900}
+  exoplanetCardC: {fileID: 1275820515}
 --- !u!1 &478961453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1409,7 @@ GameObject:
   - component: {fileID: 1247062903}
   - component: {fileID: 1247062902}
   m_Layer: 5
-  m_Name: Panel Exoplanet3 Unlocked
+  m_Name: Panel SuperEarth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1579,7 +1576,7 @@ GameObject:
   - component: {fileID: 1275820517}
   - component: {fileID: 1275820519}
   m_Layer: 5
-  m_Name: Panel Exoplanet1 Unlocked
+  m_Name: Panel GasPlanet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
