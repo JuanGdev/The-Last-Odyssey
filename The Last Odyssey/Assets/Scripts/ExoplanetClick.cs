@@ -1,3 +1,4 @@
+// ExoplanetClick.cs
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class ExoplanetClick : MonoBehaviour
     public GameObject exoplanetAnother2;
     public GameObject exoplanetLocked;
     public int exoplanetIndex;
+    public LoadingScreenTexts loadingScreenTexts; // Reference to LoadingScreenTexts
 
     void Update()
     {
@@ -24,10 +26,10 @@ public class ExoplanetClick : MonoBehaviour
                 {
                     if (GameManager.instance.exoplanetsLocked[exoplanetIndex])
                     {
-                     exoplanetMain.SetActive(true);
-                     exoplanetLocked.SetActive(false);
-                     exoplanetAnother1.SetActive(false);
-                     exoplanetAnother2.SetActive(false);
+                        exoplanetMain.SetActive(true);
+                        exoplanetLocked.SetActive(false);
+                        exoplanetAnother1.SetActive(false);
+                        exoplanetAnother2.SetActive(false);
                     }
                     else
                     {
@@ -36,9 +38,48 @@ public class ExoplanetClick : MonoBehaviour
                         exoplanetAnother1.SetActive(false);
                         exoplanetAnother2.SetActive(false);
                     }
+
+                    // Update loading texts based on selected exoplanet
+                    string[] messages = GetMessagesForExoplanet(exoplanetIndex);
+                    loadingScreenTexts.SetLoadingTexts(messages);
                 }
             }
         }
     }
-    
+
+    // Method to get messages for a specific exoplanet
+    private string[] GetMessagesForExoplanet(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return new string[]
+                {
+                    "Mensaje 1 para exoplaneta 0",
+                    "Mensaje 2 para exoplaneta 0",
+                    "Mensaje 3 para exoplaneta 0"
+                };
+            case 1:
+                return new string[]
+                {
+                    "Mensaje 1 para exoplaneta 1",
+                    "Mensaje 2 para exoplaneta 1",
+                    "Mensaje 3 para exoplaneta 1"
+                };
+            case 2:
+                return new string[]
+                {
+                    "Mensaje 1 para exoplaneta 2",
+                    "Mensaje 2 para exoplaneta 2",
+                    "Mensaje 3 para exoplaneta 2"
+                };
+            default:
+                return new string[]
+                {
+                    "Mensaje por defecto 1",
+                    "Mensaje por defecto 2",
+                    "Mensaje por defecto 3"
+                };
+        }
+    }
 }

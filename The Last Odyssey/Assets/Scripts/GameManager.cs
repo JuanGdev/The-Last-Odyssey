@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
         yield return StartCoroutine(FakeLoadingScreen());
         LoadingScreen.gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_1, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)SceneIndexes.LEVEL_SELECTOR, LoadSceneMode.Additive);
     }
 
     private IEnumerator FakeLoadingScreen()
