@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ExoplanetClick : MonoBehaviour
 {
-    private GameObject currentCard;
+    public GameObject currentCard;
     public string SceneName;
     public GameObject exoplanetCard;
     public Button skipButton;
@@ -38,16 +38,18 @@ public class ExoplanetClick : MonoBehaviour
 
     private IEnumerator LoadSceneWithLoadingUI()
     {
+        currentCard.SetActive(false);
         // Load the LoadingUI scene
         SceneManager.LoadScene("LoadingUIScene", LoadSceneMode.Additive);
         // Wait for 8 seconds
         yield return new WaitForSeconds(8f);
         // Unload the LoadingUI scene
-        currentCard.SetActive(false);    
+        SceneManager.UnloadSceneAsync("LoadingUIScene");
     }
 
     void OnButtonClick()
     {
+        StartCoroutine(LoadSceneWithLoadingUI());
         // Add your button click handling logic here
         SceneManager.LoadScene(SceneName);
         

@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/GasPlanet.unity
     guid: 34c7ac569b26d314c8a2894b653b4201
   - enabled: 1
+    path: Assets/Scenes/LoadingUIScene.unity
+    guid: 7f9d35c44b822d04eb1d32ee53ee9e29
+  - enabled: 1
     path: Assets/Scenes/Levels/NeptunianLevel.unity
     guid: 2901693ae08535d42a90b340fb51adda
   - enabled: 1

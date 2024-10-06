@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCard: {fileID: 1247062900}
   SceneName: SuperEarth
   exoplanetCard: {fileID: 1247062900}
   skipButton: {fileID: 792442774}
@@ -578,6 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCard: {fileID: 1275820515}
   SceneName: GasPlanet
   exoplanetCard: {fileID: 1275820515}
   skipButton: {fileID: 1709422955}
@@ -688,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75891335b66c9f5499001c5938152395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCard: {fileID: 1247062900}
   SceneName: NeptunianLevel
   exoplanetCard: {fileID: 156868058}
   skipButton: {fileID: 478961455}
