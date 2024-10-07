@@ -42,6 +42,13 @@ public class StarDeath : MonoBehaviour
             float normalized = (totalDistance - currentDistance) / totalDistance;
             Color32 emissionColor = Color32.Lerp(startEmissionColor, targetEmissionColor, normalized);
             Color color = Color.Lerp(startColor, targetColor, normalized);
+            
+            if (normalized > 0.5)
+            {
+                GameObject particleSystemObject = player.GetComponentInChildren<ParticleSystem>().gameObject;
+                if (particleSystemObject != null) 
+                    Destroy(particleSystemObject);
+            }
             material.SetColor("_EmissionColor", emissionColor);
             material.color = color;
             yield return null;

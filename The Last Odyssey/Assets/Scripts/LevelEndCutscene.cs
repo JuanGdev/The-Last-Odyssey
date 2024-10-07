@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,7 @@ public class LevelEndCutscene : MonoBehaviour
 {
     [SerializeField] float speed = 5;
     CinemachineVirtualCamera virtualCamera;
+    public static event Action OnLevelEnded;
     bool cutsceneStarted = false;
 
     // Start is called before the first frame update
@@ -74,9 +76,15 @@ public class LevelEndCutscene : MonoBehaviour
             float distance = Vector3.Distance(player.transform.position, transform.position);
             if (distance > 150)
             {
-                //LoadingScreen FadeIn
+                OnLevelEnded();
+                yield break;
             }
             yield return null;
         }
+    }
+
+    public static void TriggerLevelEndedEvent()
+    {
+        OnLevelEnded?.Invoke();
     }
 }

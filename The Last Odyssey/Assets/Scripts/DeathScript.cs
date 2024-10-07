@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class DeathScript : MonoBehaviour
 {
+    bool onDeath = false;
+    public static event Action OnDeath;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) ReloadScene();
@@ -12,7 +16,8 @@ public class DeathScript : MonoBehaviour
 
     void ReloadScene()
     {
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex);
+        if (onDeath) return; 
+        onDeath = true;
+        OnDeath();
     }
 }
