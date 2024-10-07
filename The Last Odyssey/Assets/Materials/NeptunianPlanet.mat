@@ -68,7 +68,7 @@ Material:
     - _SecondLayerOffset: -1.4
     - _SecondLayerSpeed: 0.4
     - _Speed: -0.01
-    - _Tiling: 41.4
+    - _Tiling: 0.4
     m_Colors:
     - _Color: {r: 5.992157, g: 0, b: 1.6368146, a: 0}
   m_BuildTextureStacks: []

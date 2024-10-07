@@ -45,9 +45,12 @@ public class StarDeath : MonoBehaviour
             
             if (normalized > 0.5)
             {
-                GameObject particleSystemObject = player.GetComponentInChildren<ParticleSystem>().gameObject;
-                if (particleSystemObject != null) 
-                    Destroy(particleSystemObject);
+                if (player != null)
+                {
+                    GameObject particleSystemObject = player.GetComponentInChildren<ParticleSystem>()?.gameObject;
+                    if (particleSystemObject != null)
+                        Destroy(particleSystemObject);
+                }
             }
             material.SetColor("_EmissionColor", emissionColor);
             material.color = color;

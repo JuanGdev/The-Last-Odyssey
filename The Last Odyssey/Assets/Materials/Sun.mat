@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava
+  m_Name: Sun
   m_Shader: {fileID: -6465566751694194690, guid: 2f95ac982d562ee4ebb9df841cba63ff,
     type: 3}
   m_Parent: {fileID: 0}
@@ -60,15 +60,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _Definition: -1.52
-    - _NormalStrenght: -7.33
-    - _Offset: -0.73
+    - _Definition: 0
+    - _NormalStrenght: 0
+    - _Offset: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SecondLayerOffset: -2.28
-    - _SecondLayerSpeed: 0.92
-    - _Speed: -0.01
-    - _Tiling: 0.4
+    - _SecondLayerOffset: 0
+    - _SecondLayerSpeed: 0
+    - _Speed: 0
+    - _Tiling: 0
     m_Colors:
-    - _Color: {r: 18.741478, g: 1.4787545, b: 0, a: 0}
+    - _Color: {r: 8, g: 7.2424583, b: 0, a: 0}
   m_BuildTextureStacks: []
