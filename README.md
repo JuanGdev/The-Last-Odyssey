@@ -21,7 +21,7 @@ This educational video game seeks to connect with children from 10 to 15 years o
 </p>
 
 
-### Available on 💻:
+  ### Platforms 💻:
 <p align="center">
   <a href="https://www.microsoft.com/windows" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" alt="Windows" width="100" height="100">
