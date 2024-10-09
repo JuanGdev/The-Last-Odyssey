@@ -1,25 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Security;
-using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 10;
-    [SerializeField] float rotationSpeed = 5;
-    [SerializeField] float jumpForce = 200;
-    [SerializeField] float gravity = 9.8f;
+    [SerializeField] float speed = 5f;
+    [SerializeField] float rotationSpeed = 5f;
+    [SerializeField] float jumpForce = 10f; // Adjusted for more reasonable jump height.
+    [SerializeField] float gravity = 15f;
     [SerializeField] CharacterController characterController;
     Trigger groundDetector;
     public bool jumping = false;
+    public Vector3 inputDirection;
     float jumpTime = 0.5f;
     float jumpStartTime = 0;
 
     public static event Action OnPlayerGrounded;
 
-    // Start is called before the first frame update
+    private Vector3 fallVelocity = Vector3.zero;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -34,51 +32,47 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        Vector3 inputDirection = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Quaternion camRotation = Quaternion.Euler(new(0, Camera.main.transform.eulerAngles.y, 0));
-
+        inputDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Quaternion camRotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         Vector3 direction = camRotation * inputDirection;
-        fallVector += GravityVector();
-        if (groundDetector.triggered && !jumping) fallVector = 0.2f * Vector3.down;
-        characterController.Move(speed * Time.deltaTime * direction + fallVector);
-        Rotation(inputDirection);
+
+        if (!groundDetector.triggered)
+        {
+            fallVelocity += GravityVelocity() * Time.deltaTime;
+        }
+        else 
+        {
+            OnPlayerGrounded();
+            if (!jumping) fallVelocity = 0.2f * Vector3.down;
+        }
+
+        characterController.Move(speed * Time.deltaTime * direction + fallVelocity * Time.deltaTime);
+        Rotation();
     }
 
-    void Rotation(Vector3 inputDirection)
+    void Rotation()
     {
-        if (inputDirection.magnitude < 0.01) return;
+        if (inputDirection.magnitude < 0.01f) return;
         float angle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
-        Quaternion targetRotation = Quaternion.Euler(new(0, angle, 0));
-        Quaternion rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    Vector3 fallVector = Vector3.zero;
     void Jump()
     {
         if (!groundDetector.triggered) return;
-        if (!jumping) fallVector = Vector3.zero;
         if (!Input.GetKeyDown(KeyCode.Space))
         {
             if (jumpTime < Time.time - jumpStartTime) jumping = false;
             return;
         }
-
         jumpStartTime = Time.time;
-        fallVector = jumpForce * Time.fixedDeltaTime * Time.fixedDeltaTime * Vector3.up;
+        fallVelocity = jumpForce * Vector3.up;
         jumping = true;
     }
 
-    float fallVelocity = 0;
-    Vector3 GravityVector()
+    Vector3 GravityVelocity()
     {
-        if (groundDetector.triggered)
-        {
-            OnPlayerGrounded();
-            fallVelocity = 0;
-            return Vector3.down * fallVelocity;
-        }
-        fallVelocity += gravity * Time.deltaTime;
-        return fallVelocity * Time.deltaTime * Time.fixedDeltaTime * Vector3.down;
+        return Vector3.down * gravity;
     }
 }
