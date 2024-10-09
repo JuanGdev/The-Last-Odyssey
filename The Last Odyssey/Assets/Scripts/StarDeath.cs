@@ -43,15 +43,7 @@ public class StarDeath : MonoBehaviour
             Color32 emissionColor = Color32.Lerp(startEmissionColor, targetEmissionColor, normalized);
             Color color = Color.Lerp(startColor, targetColor, normalized);
             
-            if (normalized > 0.5)
-            {
-                if (player != null)
-                {
-                    GameObject particleSystemObject = player.GetComponentInChildren<ParticleSystem>()?.gameObject;
-                    if (particleSystemObject != null)
-                        Destroy(particleSystemObject);
-                }
-            }
+
             material.SetColor("_EmissionColor", emissionColor);
             material.color = color;
             yield return null;

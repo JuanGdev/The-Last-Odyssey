@@ -6,14 +6,12 @@ public class PlayerAnimator : MonoBehaviour
 {
     Animator animator;
     PlayerController playerController;
-    CharacterController characterController;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         playerController = transform.parent.GetComponent<PlayerController>();
-        characterController = transform.parent.GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -33,14 +31,9 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetFloat("XZSpeedMagnitude", XZSpeedMagnitude());
     }
 
-    public void Idle()
-    {
-        
-    }
-
     float XZSpeedMagnitude()
     {
-        Vector2 XZVector = new(characterController.velocity.x, characterController.velocity.z);
+        Vector2 XZVector = new(playerController.inputDirection.x, playerController.inputDirection.z);
         return XZVector.magnitude;
     }
 

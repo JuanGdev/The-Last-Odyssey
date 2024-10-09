@@ -40,11 +40,11 @@ public class LevelEndCutscene : MonoBehaviour
     IEnumerator RotatePlayer(GameObject player)
     {
         float rotationSpeed = 0;
-        float acceleration = 2f;
+        float acceleration = 500f;
         while (true)
         {
             rotationSpeed += acceleration * Time.deltaTime;
-            player.transform.Rotate(Vector3.up, rotationSpeed);
+            player.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
             yield return null;
         }
     }

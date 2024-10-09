@@ -48,7 +48,7 @@ public class FollowWaypoint : MonoBehaviour
                 ratio += Time.deltaTime * standardSpeed;
                 Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, ratio);
                 rb.MovePosition(newPosition);
-                yield return null;
+                yield return new WaitForEndOfFrame();
             }
         }
     }
