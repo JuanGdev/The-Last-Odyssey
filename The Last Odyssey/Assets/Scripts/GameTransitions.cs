@@ -36,9 +36,11 @@ public class GameTransitions : MonoBehaviour
     {
         animator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(1.5f);
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.UnloadSceneAsync(currentScene.name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         SceneManager.LoadScene("LoadingUIScene", LoadSceneMode.Additive);
 
-        yield return new WaitForSeconds(10);
-        SceneManager.LoadScene("PersistentScene", LoadSceneMode.Single);
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("LevelSelector", LoadSceneMode.Single);
     }
 }
