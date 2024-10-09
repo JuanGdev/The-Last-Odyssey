@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 5081671960110913842, guid: 35c7da79e1152dd48a942ed1af146555,
         type: 3}
       propertyPath: m_Name
-      value: End
+      value: PiedraIndividual03
       objectReference: {fileID: 0}
     - target: {fileID: 5606534128624796552, guid: 35c7da79e1152dd48a942ed1af146555,
         type: 3}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPlayerMaterial: {fileID: 2100000, guid: 1b5c698edbccf6040a25de814eea8d9f, type: 2}
   material: {fileID: 2100000, guid: 581ed41a13196fa4d86da5401e95a535, type: 2}
-  endPoint: {fileID: 543015449}
+  endPoint: {fileID: 349111431}
   targetEmissionColor:
     serializedVersion: 2
     rgba: 16776960
@@ -429,6 +429,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &349111431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1686463300267785351, guid: 8eb22376bc8d0794aae37c742a189663,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112165881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &371312334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -773,7 +779,7 @@ Transform:
   m_GameObject: {fileID: 500271784}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6, y: -2.67, z: -6.59}
+  m_LocalPosition: {x: 23.71, y: -0.95, z: 65.96}
   m_LocalScale: {x: 4.81091, y: 4.81091, z: 4.81091}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -862,12 +868,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6e3248f08ea96849be27a78ec31c12a, type: 3}
---- !u!4 &543015449 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5606534128624796552, guid: 35c7da79e1152dd48a942ed1af146555,
-    type: 3}
-  m_PrefabInstance: {fileID: 102797022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &588060468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3391,7 +3391,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 89a63ba91afdc7c44b72759be68dafaf, type: 2}
+  - {fileID: 2100000, guid: 9a718917631841445be39002da11fd03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3640,7 +3640,7 @@ PrefabInstance:
     - target: {fileID: 2030091828740613693, guid: 8eb22376bc8d0794aae37c742a189663,
         type: 3}
       propertyPath: m_Name
-      value: PiedraIndividual02 (4)
+      value: End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3660,6 +3660,7 @@ SceneRoots:
   - {fileID: 745792904}
   - {fileID: 1377773146}
   - {fileID: 339810867}
+  - {fileID: 2112165881}
   - {fileID: 1890743866}
   - {fileID: 588060468}
   - {fileID: 998416700}
@@ -3672,7 +3673,6 @@ SceneRoots:
   - {fileID: 1293739440}
   - {fileID: 1465595598}
   - {fileID: 1893067147}
-  - {fileID: 2112165881}
   - {fileID: 1921109883}
   - {fileID: 1899368874}
   - {fileID: 1705525287}

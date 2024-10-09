@@ -30,7 +30,9 @@ public class ExoplanetClick : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    exoplanetCard.SetActive(true);
+                    exoplanetCard.GetComponent<Animator>().SetBool("Locked", false);
+                    exoplanetCardB.GetComponent<Animator>().SetBool("Locked", true);
+                    exoplanetCardC.GetComponent<Animator>().SetBool("Locked", true);
                 }
             }
         }

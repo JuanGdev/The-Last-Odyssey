@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GasPlanet
+  m_Name: NeptunianThumbnail 1
   m_Shader: {fileID: -6465566751694194690, guid: 2f95ac982d562ee4ebb9df841cba63ff,
     type: 3}
   m_Parent: {fileID: 0}
@@ -60,15 +60,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _Definition: 0.26
-    - _NormalStrenght: -21.4
-    - _Offset: -46.09
+    - _Definition: 0.99
+    - _NormalStrenght: 10
+    - _Offset: -1.4
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SecondLayerOffset: -0.7
-    - _SecondLayerSpeed: 0.3
-    - _Speed: -0.6
-    - _Tiling: 0.13
+    - _SecondLayerOffset: -1.4
+    - _SecondLayerSpeed: 0.4
+    - _Speed: -0.01
+    - _Tiling: 1.92
     m_Colors:
-    - _Color: {r: 0, g: 6.739096, b: 18.741476, a: 0}
+    - _Color: {r: 5.992157, g: 0, b: 1.6368146, a: 0}
   m_BuildTextureStacks: []

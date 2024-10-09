@@ -40,6 +40,7 @@ public class StarDeath : MonoBehaviour
                 break;
             }
             float normalized = (totalDistance - currentDistance) / totalDistance;
+            print(normalized);
             Color32 emissionColor = Color32.Lerp(startEmissionColor, targetEmissionColor, normalized);
             Color color = Color.Lerp(startColor, targetColor, normalized);
             

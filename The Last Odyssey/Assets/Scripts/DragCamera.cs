@@ -1,4 +1,5 @@
 // SolarSystemCameraController.cs
+using System.Net.Security;
 using UnityEngine;
 
 public class SolarSystemCameraController : MonoBehaviour
@@ -9,14 +10,16 @@ public class SolarSystemCameraController : MonoBehaviour
     public float ySpeed = 70.0f; // Speed of rotation around the y-axis
     public float zoomSpeed = 1.0f; // Speed of zooming in and out
 
-    private float x = 0.0f;
+    [SerializeField] float horizontalAngle = 0;
+    [SerializeField] float verticalAngle = 0;
+    float x = 0.0f;
     private float y = 0.0f;
 
     void Start()
     {
         Vector3 angles = transform.eulerAngles;
-        x = angles.y;
-        y = angles.x;
+        x = verticalAngle;
+        y = horizontalAngle;
     }
 
     void LateUpdate()
@@ -32,10 +35,21 @@ public class SolarSystemCameraController : MonoBehaviour
         distance -= scroll * zoomSpeed;
         distance = Mathf.Clamp(distance, 2.0f, 100.0f); // Increase the upper limit to allow more zoom out
 
-        Quaternion rotation = Quaternion.Euler(y, x, 0);
+        RepositionCamera(y, x);
+    }
+
+    void RepositionCamera(float horizontalAngle, float verticalAngle)
+    {
+        Quaternion rotation = Quaternion.Euler(horizontalAngle, verticalAngle, 0);
         Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
 
         transform.rotation = rotation;
         transform.position = position;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying) return;
+        RepositionCamera(horizontalAngle, verticalAngle);
     }
 }

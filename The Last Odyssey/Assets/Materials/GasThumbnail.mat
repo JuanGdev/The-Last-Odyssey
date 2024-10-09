@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GasPlanet
+  m_Name: GasThumbnail
   m_Shader: {fileID: -6465566751694194690, guid: 2f95ac982d562ee4ebb9df841cba63ff,
     type: 3}
   m_Parent: {fileID: 0}
@@ -60,15 +60,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 1
-    - _Definition: 0.26
-    - _NormalStrenght: -21.4
+    - _Definition: -1.6
+    - _NormalStrenght: 3.85
     - _Offset: -46.09
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SecondLayerOffset: -0.7
+    - _SecondLayerOffset: -1.4
     - _SecondLayerSpeed: 0.3
-    - _Speed: -0.6
-    - _Tiling: 0.13
+    - _Speed: -0.01
+    - _Tiling: 10.49
     m_Colors:
     - _Color: {r: 0, g: 6.739096, b: 18.741476, a: 0}
   m_BuildTextureStacks: []

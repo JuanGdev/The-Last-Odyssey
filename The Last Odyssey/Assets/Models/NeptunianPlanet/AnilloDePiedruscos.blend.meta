@@ -3,7 +3,12 @@ guid: 9d2b8edfb665f9443aa3dbe7a6ab839f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Asteroides
+    second: {fileID: 2100000, guid: ebdde4e0d42da784da8328a90d2c6814, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
